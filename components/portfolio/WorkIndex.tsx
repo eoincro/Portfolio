@@ -19,7 +19,7 @@ export function WorkIndex() {
             <li key={study.id} id={`work-${study.id}`} className="scroll-mt-8">
               <article
                 aria-labelledby={`case-${study.id}`}
-                className={`py-12 md:grid md:grid-cols-12 md:items-start md:gap-x-8 md:py-16 ${index === 0 ? "md:pt-8" : ""}`}
+                className={`py-12 md:grid md:grid-cols-12 md:items-start md:gap-x-8 md:py-16 ${index === 0 ? "pt-4 md:pt-8" : ""}`}
               >
                 <div className={`md:col-span-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
                   <p className="flex gap-3 text-sm text-ink/60">

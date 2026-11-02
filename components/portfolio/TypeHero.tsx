@@ -6,7 +6,7 @@ export function TypeHero() {
     <section aria-labelledby="hero-name" className="pt-12 pb-12 md:pt-14 md:pb-12">
       <h1
         id="hero-name"
-        className={`${serif.className} text-[clamp(3.5rem,12vw,9.5rem)] leading-[0.9] font-normal tracking-[-0.02em]`}
+        className={`${serif.className} text-[clamp(3.5rem,12vw,9.5rem)] leading-[0.9] font-normal tracking-normal md:tracking-[-0.02em]`}
       >
         Eoin Cronin
         <span aria-hidden className="ml-[0.06em] inline-block h-[0.7em] w-[0.06em] bg-signal" />
