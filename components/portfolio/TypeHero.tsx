@@ -13,7 +13,7 @@ export function TypeHero() {
       </h1>
       <p className="mt-4 text-lg tracking-[-0.015em] md:mt-8 md:text-xl">
         {profile.role}
-        <span className="ml-3 text-ink/60">Cork, Ireland</span>
+        <span className="block text-ink/60 md:ml-3 md:inline">Cork, Ireland</span>
       </p>
 
       <div className="mt-10 md:grid md:grid-cols-12 md:gap-x-8">
