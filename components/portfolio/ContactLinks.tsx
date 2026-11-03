@@ -4,19 +4,36 @@ import { ContactIcon } from "./ContactIcons";
 export function ContactLinks({ label, className = "" }: { label: string; className?: string }) {
   return (
     <nav aria-label={label} className={className}>
-      <ul className="flex flex-wrap items-center gap-x-2 gap-y-1">
+      <ul className="max-w-md divide-y divide-ink/15 border-y border-ink/15 font-mono text-[12px] md:text-[13px]">
         {contactLinks.map((link) => (
           <li key={link.label}>
             <a
               href={link.href}
               {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-              className="group inline-flex min-h-11 items-center rounded-full"
+              className="group grid min-h-11 grid-cols-[145px_1fr] items-center gap-4 py-2.5 sm:grid-cols-[180px_1fr]"
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-[#EFECE4]/50 px-3.5 py-1.5 font-mono text-xs tracking-wider uppercase transition-all duration-150 group-hover:border-ink/50 group-hover:bg-[#EFECE4] group-focus-visible:border-ink/50 [&_svg]:size-3.5">
+              <span className="flex items-center gap-2.5 tracking-[0.06em] text-ink/60 uppercase transition-colors duration-150 group-hover:text-ink [&_svg]:size-4">
                 <ContactIcon name={link.icon} />
                 {link.label}
               </span>
-              {link.external && <span className="sr-only">(opens in new tab)</span>}
+              <span className="min-w-0 break-words text-ink underline decoration-ink/30 underline-offset-4 transition-colors duration-150 group-hover:decoration-signal-strong group-focus-visible:decoration-signal-strong">
+                {link.value}
+                {link.external && (
+                  <>
+                    <svg
+                      aria-hidden
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.25}
+                      className="ml-1.5 inline size-2.5 align-baseline"
+                    >
+                      <path d="M3 9 9 3M4.5 3H9v4.5" />
+                    </svg>
+                    <span className="sr-only"> (opens in new tab)</span>
+                  </>
+                )}
+              </span>
             </a>
           </li>
         ))}

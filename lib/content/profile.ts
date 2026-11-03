@@ -8,6 +8,6 @@ export const profile = {
 export type ContactIcon = "email" | "linkedin";
 
 export const contactLinks = [
-  { label: "Email", href: `mailto:${profile.email}`, external: false, icon: "email" },
-  { label: "LinkedIn", href: profile.linkedinUrl, external: true, icon: "linkedin" },
-] as const satisfies readonly { label: string; href: string; external: boolean; icon: ContactIcon }[];
+  { label: "Email", value: profile.email.toLowerCase(), href: `mailto:${profile.email}`, external: false, icon: "email" },
+  { label: "LinkedIn", value: "linkedin.com/in/eoin-cronin", href: profile.linkedinUrl, external: true, icon: "linkedin" },
+] as const satisfies readonly { label: string; value: string; href: string; external: boolean; icon: ContactIcon }[];
