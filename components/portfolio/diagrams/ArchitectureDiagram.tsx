@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass } from "./parts";
 
-type Mapping = { key: string; value: string; accent?: boolean };
+type Mapping = { key: string; value: string };
 
 const STAGES: readonly { id: string; label: string; sub: string; mappings: readonly Mapping[] }[] = [
   {
@@ -12,7 +12,7 @@ const STAGES: readonly { id: string; label: string; sub: string; mappings: reado
     sub: "figma → tokens",
     mappings: [
       { key: "Figma", value: "color/action/primary" },
-      { key: "Token", value: "--color-action-primary: #ff4f00;", accent: true },
+      { key: "Token", value: "--color-action-primary: #ff4f00;" },
       { key: "Type", value: 'type ColorToken = "action-primary" | "action-secondary";' },
     ],
   },
@@ -22,7 +22,7 @@ const STAGES: readonly { id: string; label: string; sub: string; mappings: reado
     sub: "button, tag",
     mappings: [
       { key: "Figma", value: "Button / Variant=Primary, Size=M" },
-      { key: "Angular", value: '<app-button variant="primary" size="m">', accent: true },
+      { key: "Angular", value: '<app-button variant="primary" size="m">' },
       { key: "React", value: '<Button variant="primary" size="m" />' },
     ],
   },
@@ -32,7 +32,7 @@ const STAGES: readonly { id: string; label: string; sub: string; mappings: reado
     sub: "select, tabs",
     mappings: [
       { key: "Figma", value: "Select / State=Error" },
-      { key: "Angular", value: '<app-select label="Status" [invalid]="true">', accent: true },
+      { key: "Angular", value: '<app-select label="Status" [invalid]="true">' },
       { key: "Props", value: "{ label: string; invalid?: boolean }" },
     ],
   },
@@ -42,7 +42,7 @@ const STAGES: readonly { id: string; label: string; sub: string; mappings: reado
     sub: "dev mode",
     mappings: [
       { key: "Figma", value: "Dev Mode → Button" },
-      { key: "Mapping", value: 'variant: figma.enum("Variant", { Primary: "primary" })', accent: true },
+      { key: "Mapping", value: 'variant: figma.enum("Variant", { Primary: "primary" })' },
       { key: "Shows", value: '<app-button variant="primary">' },
     ],
   },
@@ -80,7 +80,7 @@ export function ArchitectureDiagram() {
           {active.mappings.map((mapping) => (
             <div key={mapping.key} className="md:grid md:grid-cols-[5.5rem_minmax(0,1fr)] md:gap-x-4">
               <dt className="text-ivory/60">{mapping.key}</dt>
-              <dd className={`break-words ${mapping.accent ? "text-signal-on-dark" : ""}`}>
+              <dd className="break-words">
                 <code>{mapping.value}</code>
               </dd>
             </div>

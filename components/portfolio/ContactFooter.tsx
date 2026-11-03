@@ -1,9 +1,17 @@
 import { profile } from "@/lib/content/profile";
+import { ContactLinks } from "./ContactLinks";
 
 export function ContactFooter() {
   return (
-    <footer className="mt-16 border-t border-ink/15 pt-4 pb-8 md:mt-32">
-      <p className="text-sm text-ink/60">
+    <footer aria-labelledby="contact-title" className="mt-16 pb-8 md:mt-24">
+      <div className="flex items-center gap-4">
+        <h2 id="contact-title" className="text-sm font-medium text-ink">
+          Contact
+        </h2>
+        <span aria-hidden className="h-px flex-1 bg-ink/15" />
+      </div>
+      <ContactLinks label="Footer contact" className="mt-4" />
+      <p className="mt-12 text-sm text-ink/60 md:mt-16">
         © {new Date().getFullYear()} {profile.name}
       </p>
     </footer>
