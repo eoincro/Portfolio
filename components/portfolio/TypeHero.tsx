@@ -3,7 +3,7 @@ import { serif } from "@/lib/fonts";
 import { ContactLinks } from "./ContactLinks";
 export function TypeHero() {
   return (
-    <section aria-labelledby="hero-name" className="pt-12 pb-12 md:pt-14 md:pb-12">
+    <section aria-labelledby="hero-name" className="pt-12 pb-14 md:pt-14 md:pb-20">
       <h1
         id="hero-name"
         className={`${serif.className} group text-[clamp(3.5rem,12vw,9.5rem)] leading-[0.9] font-normal tracking-normal md:tracking-[-0.02em]`}
