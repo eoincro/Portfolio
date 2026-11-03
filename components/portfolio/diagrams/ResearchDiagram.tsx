@@ -100,7 +100,7 @@ export function ResearchDiagram() {
         {renderSteps(OUTPUTS)}
       </div>
 
-      <DetailPanel id={panelId} heading={`Artifact: ${active.label}`} panelKey={active.id}>
+      <DetailPanel id={panelId} heading={active.label} panelKey={active.id}>
         <p>{active.artifact}</p>
       </DetailPanel>
 

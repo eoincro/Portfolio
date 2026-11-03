@@ -9,13 +9,14 @@ export function WorkIndex() {
   return (
     <section id="work" aria-labelledby="work-title" className="scroll-mt-8">
       <Container>
-        <div className="border-t border-ink/15 pt-8">
-          <h2 id="work-title" className="text-2xl font-medium tracking-[-0.025em] md:text-3xl">
+        <div className="flex items-center gap-4">
+          <h2 id="work-title" className="font-mono text-xs tracking-wider text-ink/60 uppercase">
             Work
           </h2>
+          <span aria-hidden className="h-px flex-1 bg-ink/15" />
         </div>
 
-        <ol className="mt-4 divide-y divide-ink/15 md:mt-0">
+        <ol className="divide-y divide-ink/15">
           {caseStudies.map((study, index) => (
             <li key={study.id} id={`work-${study.id}`} className="scroll-mt-8">
               <article
