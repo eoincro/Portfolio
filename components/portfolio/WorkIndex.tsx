@@ -36,11 +36,11 @@ export function WorkIndex() {
                   </h3>
                   {study.context && <p className="mt-2 text-sm text-ink/60">{study.context}</p>}
                   <p className="mt-4 max-w-md text-base leading-relaxed text-ink/75">{study.summary}</p>
-                  <MetricStrip metrics={study.metrics} />
                 </div>
                 <div className="mt-8 md:col-span-8 md:mt-0 2xl:col-span-7">
                   <div className={`max-w-[56rem] ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
                     <Diagram study={study.id} />
+                    <MetricStrip metrics={study.metrics} />
                   </div>
                 </div>
               </article>
