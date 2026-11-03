@@ -10,7 +10,7 @@ export function WorkIndex() {
     <section id="work" aria-labelledby="work-title" className="scroll-mt-8">
       <Container>
         <div className="flex items-center gap-4">
-          <h2 id="work-title" className="font-mono text-xs tracking-wider text-ink/60 uppercase">
+          <h2 id="work-title" className="text-sm font-medium text-ink">
             Work
           </h2>
           <span aria-hidden className="h-px flex-1 bg-ink/15" />
@@ -23,14 +23,14 @@ export function WorkIndex() {
                 aria-labelledby={`case-${study.id}`}
                 className={`py-12 md:grid md:grid-cols-12 md:items-start md:gap-x-8 md:py-16 ${index === 0 ? "pt-4 md:pt-8" : ""}`}
               >
-                <div className={`md:col-span-4 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                <div className={`md:col-span-4 2xl:col-span-5 ${index % 2 === 1 ? "md:order-2" : ""}`}>
                   <p className="flex gap-3 text-sm text-ink/60">
                     <span className="tabular-nums">{itemNumber(index)}</span>
                     {study.kind}
                   </p>
                   <h3
                     id={`case-${study.id}`}
-                    className="mt-2 -ml-[0.3em] text-xl leading-[1.45] font-medium tracking-[-0.02em] text-balance md:text-2xl"
+                    className="mt-2 -ml-[0.3em] text-xl leading-[1.45] font-medium tracking-[-0.02em] text-balance md:text-2xl xl:text-[1.75rem]"
                   >
                     <span className="paint-stroke">{study.title}</span>
                   </h3>
@@ -38,7 +38,7 @@ export function WorkIndex() {
                   <p className="mt-4 max-w-md text-base leading-relaxed text-ink/75">{study.summary}</p>
                   <MetricStrip metrics={study.metrics} />
                 </div>
-                <div className="mt-8 md:col-span-8 md:mt-0">
+                <div className="mt-8 md:col-span-8 md:mt-0 2xl:col-span-7">
                   <div className={`max-w-[56rem] ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
                     <Diagram study={study.id} />
                   </div>

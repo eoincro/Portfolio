@@ -11,13 +11,13 @@ export function TypeHero() {
         Eoin Cronin
         <span aria-hidden className="ml-[0.06em] inline-block h-[0.7em] w-[0.06em] animate-caret-blink bg-signal group-hover:animate-caret-pulse motion-reduce:animate-none" />
       </h1>
-      <p className="mt-4 text-lg tracking-[-0.015em] md:mt-8 md:text-xl">
-        {profile.role}
-        <span className="block text-ink/60 md:ml-3 md:inline">Cork, Ireland</span>
-      </p>
+      <div className="mt-4 md:mt-8 lg:grid lg:grid-cols-12 lg:items-baseline lg:gap-x-8">
+        <p className="text-lg tracking-[-0.015em] md:text-xl lg:col-span-4 2xl:col-span-5">
+          {profile.role}
+          <span className="block text-ink/60 md:ml-3 md:inline lg:ml-0 lg:block">Cork, Ireland</span>
+        </p>
 
-      <div className="mt-10 md:grid md:grid-cols-12 md:gap-x-8">
-        <div className="md:col-span-8">
+        <div className="mt-10 lg:col-span-8 lg:mt-0 2xl:col-span-7">
           <p className="text-[clamp(1.375rem,3vw,2.125rem)] leading-[1.2] font-normal tracking-[-0.02em] text-balance">
             I turn{" "}
             <em className={`${serif.className} text-[1.12em] font-normal tracking-[-0.01em]`}>design systems</em>{" "}

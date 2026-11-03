@@ -20,12 +20,10 @@ export function Caption({ children, hint }: { children: ReactNode; hint?: string
   );
 }
 
-type NodeState = "idle" | "emphasis" | "active";
+type NodeState = "idle" | "active";
 
 const NODE_TONES: Record<NodeState, string> = {
-  idle: "border-ivory/20",
-  emphasis: "border-signal-on-dark/70",
-  active: "border-signal-on-dark bg-signal-on-dark/10",
+  idle: "border-ivory/20",  active: "border-signal-on-dark bg-signal-on-dark/10",
 };
 
 export function nodeClass(state: NodeState, interactive = false) {

@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass } from "./parts";
 
-const STEPS: readonly { id: string; label: string; sub: string; rule: string; emphasis?: boolean }[] = [
+const STEPS: readonly { id: string; label: string; sub: string; rule: string }[] = [
   {
     id: "figma",
     label: "Figma",
@@ -26,9 +26,7 @@ const STEPS: readonly { id: string; label: string; sub: string; rule: string; em
     id: "guardrails",
     label: "Guardrails",
     sub: "prompt + review",
-    rule: "Design-system components only, tokens instead of raw values, reviewed to the same bar as hand-written code.",
-    emphasis: true,
-  },
+    rule: "Design-system components only, tokens instead of raw values, reviewed to the same bar as hand-written code.",  },
   {
     id: "production",
     label: "Production",
@@ -77,7 +75,7 @@ export function WorkflowDiagram() {
                 aria-pressed={isActive}
                 aria-controls={panelId}
                 onClick={() => setActiveId(step.id)}
-                className={nodeClass(isActive ? "active" : step.emphasis ? "emphasis" : "idle", true)}
+                className={nodeClass(isActive ? "active" : "idle", true)}
               >
                 <NodeText label={step.label} sub={step.sub} active={isActive} />
               </button>
