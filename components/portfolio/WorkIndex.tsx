@@ -1,6 +1,7 @@
 import { caseStudies } from "@/lib/content/caseStudies";
 import { Container } from "./Container";
-import { SchematicFrame } from "./SchematicFrame";
+import { Diagram } from "./diagrams";
+import { MetricStrip } from "./MetricStrip";
 
 const itemNumber = (index: number) => String(index + 1).padStart(2, "0");
 
@@ -34,10 +35,11 @@ export function WorkIndex() {
                   </h3>
                   {study.context && <p className="mt-2 text-sm text-ink/60">{study.context}</p>}
                   <p className="mt-4 max-w-md text-base leading-relaxed text-ink/75">{study.summary}</p>
+                  <MetricStrip metrics={study.metrics} />
                 </div>
                 <div className="mt-8 md:col-span-8 md:mt-0">
                   <div className={`max-w-[56rem] ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
-                    <SchematicFrame study={study} />
+                    <Diagram study={study.id} />
                   </div>
                 </div>
               </article>

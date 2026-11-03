@@ -1,0 +1,72 @@
+import type { ReactNode } from "react";
+
+export function DiagramFrame({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <figure
+      aria-label={label}
+      className="schematic-grid rounded-lg border border-schematic-line bg-schematic p-4 font-mono text-[12px] leading-snug text-ivory md:p-6 xl:text-[13px]"
+    >
+      {children}
+    </figure>
+  );
+}
+
+export function Caption({ children, hint }: { children: ReactNode; hint?: string }) {
+  return (
+    <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+      <p className="tracking-[0.06em] text-ivory/60 uppercase">{children}</p>
+      {hint && <p className="text-ivory/60">{hint}</p>}
+    </div>
+  );
+}
+
+type NodeState = "idle" | "emphasis" | "active";
+
+const NODE_TONES: Record<NodeState, string> = {
+  idle: "border-ivory/20",
+  emphasis: "border-signal-on-dark/70",
+  active: "border-signal-on-dark bg-signal-on-dark/10",
+};
+
+export function nodeClass(state: NodeState, interactive = false) {
+  const hover = interactive && state !== "active" ? "cursor-pointer hover:border-ivory/50" : "";
+  return `flex h-full w-full flex-col items-start gap-1 rounded-md border bg-schematic px-3 py-2.5 text-left transition-colors lg:px-2.5 ${NODE_TONES[state]} ${hover}`;
+}
+
+export function NodeText({ label, sub, active }: { label: string; sub?: string; active?: boolean }) {
+  return (
+    <>
+      <span className={`tracking-[0.06em] uppercase ${active ? "text-signal-on-dark" : ""}`}>{label}</span>
+      {sub && <span className="text-ivory/60">{sub}</span>}
+    </>
+  );
+}
+
+export const flowListClass = "flex flex-col gap-6 lg:flex-row lg:gap-5";
+export const flowItemClass = "relative lg:min-w-0 lg:flex-1";
+
+export function FlowArrow() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      className="absolute top-full left-4 mt-1.5 size-3 rotate-90 text-ivory/40 lg:top-1/2 lg:left-full lg:mt-0 lg:ml-1 lg:-translate-y-1/2 lg:rotate-0"
+    >
+      <path d="M2 8h11M9 4l4 4-4 4" />
+    </svg>
+  );
+}
+
+export function DetailPanel({ id, heading, panelKey, children }: { id: string; heading: string; panelKey: string; children: ReactNode }) {
+  return (
+    <div id={id} aria-live="polite" className="mt-5 rounded-md border border-ivory/15 bg-ivory/[0.03] p-3 md:p-4">
+      <div key={panelKey} className="motion-safe:animate-panel-in">
+        <p className="tracking-[0.06em] text-ivory/60 uppercase">{heading}</p>
+        <div className="mt-2">{children}</div>
+      </div>
+    </div>
+  );
+}

@@ -8,6 +8,18 @@
   --color-signal: #ff4f00;
   --color-signal-strong: #e04400;
   --color-depth: #1f3a5f;
+  --color-schematic: #141413;
+  --color-schematic-line: #2a2a28;
+  --color-signal-on-dark: #ff5a1f;
+
+  --animate-panel-in: panel-in 220ms ease-out;
+
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
 }
 
 @theme inline {
@@ -38,10 +50,12 @@
   -webkit-box-decoration-break: clone;
 }
 
-@utility dot-grid {
-  background-image: radial-gradient(var(--dot-color, rgb(20 20 19 / 0.13)) 0.8px, transparent 0.8px);
-  background-size: 16px 16px;
-  background-position: 8px 8px;
+@utility schematic-grid {
+  background-image:
+    linear-gradient(var(--color-schematic-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-schematic-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: -1px -1px;
 }
 
 html {
