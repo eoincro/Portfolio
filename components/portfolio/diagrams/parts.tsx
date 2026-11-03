@@ -42,8 +42,8 @@ export function NodeText({ label, sub, active }: { label: string; sub?: string; 
   );
 }
 
-export const flowListClass = "flex flex-col gap-6 lg:flex-row lg:gap-5";
-export const flowItemClass = "relative lg:min-w-0 lg:flex-1";
+export const flowListClass = "grid grid-cols-2 gap-2 lg:flex lg:flex-row lg:gap-5";
+export const flowItemClass = "relative odd:last:col-span-2 lg:min-w-0 lg:flex-1 lg:odd:last:col-span-1";
 
 export function FlowArrow() {
   return (
@@ -53,7 +53,7 @@ export function FlowArrow() {
       fill="none"
       stroke="currentColor"
       strokeWidth={1.5}
-      className="absolute top-full left-4 mt-1.5 size-3 rotate-90 text-ivory/40 lg:top-1/2 lg:left-full lg:mt-0 lg:ml-1 lg:-translate-y-1/2 lg:rotate-0"
+      className="absolute top-1/2 left-full ml-1 hidden size-3 -translate-y-1/2 text-ivory/40 lg:block"
     >
       <path d="M2 8h11M9 4l4 4-4 4" />
     </svg>
@@ -62,7 +62,7 @@ export function FlowArrow() {
 
 export function DetailPanel({ id, heading, panelKey, children }: { id: string; heading: string; panelKey: string; children: ReactNode }) {
   return (
-    <div id={id} aria-live="polite" className="mt-5 rounded-md border border-ivory/15 bg-ivory/[0.03] p-3 md:p-4">
+    <div id={id} aria-live="polite" className="mt-3 rounded-md border border-ivory/15 bg-ivory/[0.03] p-3 md:p-4">
       <div key={panelKey} className="motion-safe:animate-panel-in">
         <p className="tracking-[0.06em] text-ivory/60 uppercase">{heading}</p>
         <div className="mt-2">{children}</div>

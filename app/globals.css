@@ -12,12 +12,34 @@
   --color-schematic-line: #2a2a28;
   --color-signal-on-dark: #ff5a1f;
 
-  --animate-panel-in: panel-in 220ms ease-out;
+  --animate-panel-in: panel-in 150ms ease-out;
+  --animate-caret-blink: caret-blink 1s step-end 3 forwards;
+  --animate-caret-pulse: caret-pulse 1.4s ease-in-out infinite;
 
   @keyframes panel-in {
     from {
       opacity: 0;
       transform: translateY(4px);
+    }
+  }
+
+  @keyframes caret-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes caret-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
     }
   }
 }

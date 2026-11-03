@@ -6,10 +6,10 @@ export function TypeHero() {
     <section aria-labelledby="hero-name" className="pt-12 pb-12 md:pt-14 md:pb-12">
       <h1
         id="hero-name"
-        className={`${serif.className} text-[clamp(3.5rem,12vw,9.5rem)] leading-[0.9] font-normal tracking-normal md:tracking-[-0.02em]`}
+        className={`${serif.className} group text-[clamp(3.5rem,12vw,9.5rem)] leading-[0.9] font-normal tracking-normal md:tracking-[-0.02em]`}
       >
         Eoin Cronin
-        <span aria-hidden className="ml-[0.06em] inline-block h-[0.7em] w-[0.06em] bg-signal" />
+        <span aria-hidden className="ml-[0.06em] inline-block h-[0.7em] w-[0.06em] animate-caret-blink bg-signal group-hover:animate-caret-pulse motion-reduce:animate-none" />
       </h1>
       <p className="mt-4 text-lg tracking-[-0.015em] md:mt-8 md:text-xl">
         {profile.role}

@@ -19,7 +19,7 @@ const STAGES: readonly { id: string; label: string; sub: string; mappings: reado
   {
     id: "atoms",
     label: "Atoms",
-    sub: "button · tag",
+    sub: "button, tag",
     mappings: [
       { key: "Figma", value: "Button / Variant=Primary, Size=M" },
       { key: "Angular", value: '<app-button variant="primary" size="m">', accent: true },
@@ -29,7 +29,7 @@ const STAGES: readonly { id: string; label: string; sub: string; mappings: reado
   {
     id: "molecules",
     label: "Molecules",
-    sub: "select · tabs",
+    sub: "select, tabs",
     mappings: [
       { key: "Figma", value: "Select / State=Error" },
       { key: "Angular", value: '<app-select label="Status" [invalid]="true">', accent: true },
@@ -55,7 +55,7 @@ export function ArchitectureDiagram() {
 
   return (
     <DiagramFrame label="Figma design system mirrored in Storybook and Angular">
-      <Caption hint="Select a stage">Figma → Storybook · Angular</Caption>
+      <Caption hint="Select a stage">Figma → Angular Storybook</Caption>
       <ol className={flowListClass}>
         {STAGES.map((stage, index) => {
           const isActive = stage.id === activeId;
@@ -75,7 +75,7 @@ export function ArchitectureDiagram() {
           );
         })}
       </ol>
-      <DetailPanel id={panelId} heading={`Example · ${active.label}`} panelKey={active.id}>
+      <DetailPanel id={panelId} heading={`Example: ${active.label}`} panelKey={active.id}>
         <dl className="space-y-2">
           {active.mappings.map((mapping) => (
             <div key={mapping.key} className="md:grid md:grid-cols-[5.5rem_minmax(0,1fr)] md:gap-x-4">

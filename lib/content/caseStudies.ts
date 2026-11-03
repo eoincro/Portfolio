@@ -43,7 +43,7 @@ export const caseStudies: readonly CaseStudy[] = [
     id: "student-app-research",
     kind: "Research",
     title: "Where a university app fails part-time students",
-    context: "UX research & service design study · Postgraduate Diploma, Digital Design (NFQ Level 9), TU Dublin",
+    context: "UX research & service design study, Postgraduate Diploma in Digital Design (NFQ Level 9), TU Dublin",
     summary:
       "A design research study of TU Dublin's new student app, from the side of part-time postgraduates who study online. I ran a service safari and three moderated interviews, benchmarked Coursera, Airbnb and Google Maps, and synthesised the results into four findings and six prioritised recommendations, each with a success measure.",
     metrics: [

@@ -7,12 +7,12 @@ const STEPS: readonly { id: string; label: string; sub: string; rule: string; em
   {
     id: "figma",
     label: "Figma",
-    sub: "design · ai",
+    sub: "design + ai",
     rule: "Screens are built from design-system components and variables, never detached layers.",
   },
   {
     id: "mcp",
-    label: "MCP · API",
+    label: "MCP + API",
     sub: "design context",
     rule: "Cursor reads the frame's structure, variables and Code Connect mappings, not a screenshot.",
   },
@@ -25,7 +25,7 @@ const STEPS: readonly { id: string; label: string; sub: string; rule: string; em
   {
     id: "guardrails",
     label: "Guardrails",
-    sub: "prompt · review",
+    sub: "prompt + review",
     rule: "Design-system components only, tokens instead of raw values, reviewed to the same bar as hand-written code.",
     emphasis: true,
   },
@@ -91,7 +91,7 @@ export function WorkflowDiagram() {
         system&apos;s real components
       </p>
 
-      <DetailPanel id={panelId} heading={`Rule · ${active.label}`} panelKey={active.id}>
+      <DetailPanel id={panelId} heading={`Rule: ${active.label}`} panelKey={active.id}>
         <p>{active.rule}</p>
       </DetailPanel>
 
