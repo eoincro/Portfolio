@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eoin Cronin — Lead Frontend & UX Engineer",
+  title: "Eoin Cronin | Lead Frontend & UX Engineer",
   description:
-    "Lead frontend and UX engineer in Cork, Ireland. I turn Figma design systems into production Angular and React code, and make AI-generated UI meet the same standard.",
+    "Lead Frontend & UX Engineer in Cork, Ireland. I turn Figma design systems into production Angular and React code.",
 };
 
 export const viewport: Viewport = {
