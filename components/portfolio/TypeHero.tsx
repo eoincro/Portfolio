@@ -24,7 +24,7 @@ export function TypeHero() {
             into production code.
           </p>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/70 md:text-lg">
-            Eight years shipping Angular and React, now making AI-generated UI meet the same standard.
+            Eight years shipping Angular and React. Now I hold AI-generated code to the same standard.
           </p>
 
           <ContactLinks label="Contact" className="mt-6" />
