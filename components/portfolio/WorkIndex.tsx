@@ -38,7 +38,7 @@ export function WorkIndex() {
                   <p className="mt-4 max-w-md text-base leading-relaxed text-ink/75">{study.summary}</p>
                 </div>
                 <div className="mt-8 md:col-span-8 md:mt-0 2xl:col-span-7">
-                  <div className={`max-w-[56rem] ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
+                  <div className="max-w-[56rem]">
                     <Diagram study={study.id} />
                     <MetricStrip metrics={study.metrics} />
                   </div>
