@@ -5,3 +5,6 @@ next-env.d.ts
 *.tsbuildinfo
 .env*
 .vercel
+
+# local design mockups (confidential)
+/mockups/
