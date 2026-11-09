@@ -23,7 +23,7 @@ export function WorkIndex() {
                 aria-labelledby={`case-${study.id}`}
                 className={`pb-12 md:grid md:grid-cols-12 md:items-start md:gap-x-8 md:pb-16 ${index === 0 ? "pt-4 md:pt-8" : "pt-12 md:pt-16"}`}
               >
-                <div className={`md:col-span-4 2xl:col-span-5 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                <div className="md:col-span-4 2xl:col-span-5">
                   <p className="flex gap-3 text-sm text-ink/60">
                     <span className="tabular-nums">{itemNumber(index)}</span>
                     {study.kind}
