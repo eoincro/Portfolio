@@ -11,7 +11,7 @@ export function ContactLinks({ label, className = "" }: { label: string; classNa
               href={link.href}
               aria-label={`${link.label}: ${link.value}${link.external ? " (opens in new tab)" : ""}`}
               {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-              className="group inline-flex min-h-11 items-center gap-2.5 text-[15px] md:text-base"
+              className="group inline-flex min-h-11 items-center gap-2.5 rounded-sm text-[15px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal md:text-base"
             >
               <span className="text-ink/60 transition-colors duration-150 group-hover:text-ink [&_svg]:size-4">
                 <ContactIcon name={link.icon} />

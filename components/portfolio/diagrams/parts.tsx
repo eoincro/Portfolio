@@ -1,10 +1,11 @@
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode, type Ref } from "react";
 
-export function DiagramFrame({ label, children }: { label: string; children: ReactNode }) {
+export function DiagramFrame({ label, children, ref }: { label: string; children: ReactNode; ref?: Ref<HTMLElement> }) {
   return (
     <figure
+      ref={ref}
       aria-label={label}
-      className="schematic-grid rounded-lg border border-schematic-line bg-schematic p-4 font-mono text-[12px] leading-snug text-ivory md:p-6 xl:text-[13px]"
+      className="schematic-grid rounded-lg border border-schematic-line bg-schematic p-4 font-mono text-[13px] leading-snug text-ivory md:p-6 xl:text-[14px]"
     >
       {children}
     </figure>
@@ -15,7 +16,12 @@ export function Caption({ children, hint }: { children: ReactNode; hint?: string
   return (
     <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
       <p className="tracking-[0.06em] text-ivory/60 uppercase">{children}</p>
-      {hint && <p className="text-ivory/60">{hint}</p>}
+      {hint && (
+        <p className="flex items-center gap-2 text-ivory/85">
+          <span aria-hidden className="size-1.5 rounded-full bg-signal-on-dark" />
+          {hint}
+        </p>
+      )}
     </div>
   );
 }
@@ -28,7 +34,49 @@ const NODE_TONES: Record<NodeState, string> = {
 
 export function nodeClass(state: NodeState, interactive = false) {
   const hover = interactive && state !== "active" ? "cursor-pointer hover:border-ivory/50" : "";
-  return `flex h-full w-full flex-col items-start gap-1 rounded-md border bg-schematic px-3 py-2.5 text-left transition-colors lg:px-2.5 ${NODE_TONES[state]} ${hover}`;
+  return `flex h-full w-full flex-col items-start gap-1 rounded-md border bg-schematic px-3 py-2.5 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal-on-dark lg:px-2.5 ${NODE_TONES[state]} ${hover}`;
+}
+
+export function useDemoSelect(select: () => void) {
+  const ref = useRef<HTMLElement>(null);
+  const selectRef = useRef(select);
+  useEffect(() => {
+    selectRef.current = select;
+  });
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let touched = false;
+    let timer: number | undefined;
+    const markTouched = () => {
+      touched = true;
+    };
+    el.addEventListener("pointerdown", markTouched);
+    el.addEventListener("keydown", markTouched);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        timer = window.setTimeout(() => {
+          if (!touched) selectRef.current();
+        }, 900);
+      },
+      { threshold: 0.6 },
+    );
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timer);
+      el.removeEventListener("pointerdown", markTouched);
+      el.removeEventListener("keydown", markTouched);
+    };
+  }, []);
+
+  return ref;
 }
 
 export function NodeText({ label, sub, active }: { label: string; sub?: string; active?: boolean }) {

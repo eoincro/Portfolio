@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass } from "./parts";
+import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass, useDemoSelect } from "./parts";
 
 type Mapping = { key: string; value: string };
 
@@ -52,9 +52,10 @@ export function ArchitectureDiagram() {
   const [activeId, setActiveId] = useState(STAGES[0].id);
   const panelId = useId();
   const active = STAGES.find((stage) => stage.id === activeId) ?? STAGES[0];
+  const frameRef = useDemoSelect(() => setActiveId(STAGES[1].id));
 
   return (
-    <DiagramFrame label="Figma design system mirrored in Storybook and Angular">
+    <DiagramFrame ref={frameRef} label="Figma design system mirrored in Storybook and Angular">
       <Caption hint="Select a stage">Figma → Angular Storybook</Caption>
       <ol className={flowListClass}>
         {STAGES.map((stage, index) => {

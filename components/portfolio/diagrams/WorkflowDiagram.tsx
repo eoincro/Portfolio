@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass } from "./parts";
+import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass, useDemoSelect } from "./parts";
 
 const STEPS: readonly { id: string; label: string; sub: string; rule: string }[] = [
   {
@@ -43,6 +43,7 @@ export function WorkflowDiagram() {
   const barsRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
   const active = STEPS.find((step) => step.id === activeId) ?? STEPS[0];
+  const frameRef = useDemoSelect(() => setActiveId("production"));
 
   useEffect(() => {
     const bars = barsRef.current;
@@ -63,7 +64,7 @@ export function WorkflowDiagram() {
   const barClass = "h-full transition-[width] duration-700 ease-out motion-reduce:transition-none";
 
   return (
-    <DiagramFrame label="AI-native design-to-code workflow with guardrails">
+    <DiagramFrame ref={frameRef} label="AI-assisted design-to-code workflow with guardrails">
       <Caption hint="Select a step">Design to production</Caption>
       <ol className={flowListClass}>
         {STEPS.map((step, index) => {

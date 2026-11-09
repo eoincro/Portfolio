@@ -30,7 +30,7 @@ export const caseStudies: readonly CaseStudy[] = [
   {
     id: "ai-workflow",
     kind: "Workflow",
-    title: "AI-native design-to-code, with guardrails",
+    title: "AI-assisted design-to-code, with guardrails",
     summary:
       "I connected Figma to Cursor through MCP and the Figma API. Because the design system is linked with Code Connect, Cursor builds with the real components instead of guessing, and prompt and review standards hold AI-generated UI to the same bar as hand-written code.",
     metrics: [

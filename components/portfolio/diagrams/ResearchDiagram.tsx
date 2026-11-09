@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass } from "./parts";
+import { Caption, DetailPanel, DiagramFrame, FlowArrow, NodeText, flowItemClass, flowListClass, nodeClass, useDemoSelect } from "./parts";
 
 type Step = { id: string; label: string; sub: string; artifact: string };
 
@@ -67,6 +67,7 @@ export function ResearchDiagram() {
   const [activeId, setActiveId] = useState("recommendations");
   const panelId = useId();
   const active = STEPS.find((step) => step.id === activeId) ?? STEPS[STEPS.length - 1];
+  const frameRef = useDemoSelect(() => setActiveId("findings"));
 
   const renderSteps = (steps: readonly Step[]) => (
     <ol className={flowListClass}>
@@ -91,7 +92,7 @@ export function ResearchDiagram() {
   );
 
   return (
-    <DiagramFrame label="Design research study of a university student app">
+    <DiagramFrame ref={frameRef} label="Design research study of a university student app">
       <Caption hint="Select a step">Methods</Caption>
       {renderSteps(METHODS)}
 
